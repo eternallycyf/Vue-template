@@ -1,0 +1,24 @@
+<body>
+  <div class='template'></div>
+  <script type="text/html" id='tpl'>
+    <div id='dv'>
+      <h1>{{ name }}</h1>
+      <h1>{{ age }}</h1>
+      <h1>{{ sex }}</h1>
+    </div>
+  </script>
+
+  <script>
+    const dv = document.getElementById('tpl').innerHTML
+    const content = document.querySelector('.template')
+    const source = dv.replace(/\s+/g, '')
+    let str = source.replace(/\{\{(.*?)}\}/g, function (node, key) {
+      return {
+        name: 'zs',
+        age: 12,
+        sex: '男'
+      }[key]
+    })
+    content.innerHTML = str
+  </script>
+</body>
